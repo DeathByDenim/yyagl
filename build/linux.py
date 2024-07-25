@@ -8,7 +8,7 @@ from yyagl.build.build import bld_dpath, branch, InsideDir, size
 def bld_linux(target, source, env):  # unused target, source
     ico_fpath = env['ICO_FPATH']
     # chdir('..')  # after the previous command we are in 'dist'
-    src = '{dst_dir}../dist/{appname}-{version}_manylinux1_x86_64.tar.xz'
+    src = '{dst_dir}../dist/{appname}-{version}_manylinux2014_x86_64.tar.xz'
     tgt_file = '{dst_dir}{appname}-{version}-linux_amd64.tar.xz'
     src_fmt = src.format(dst_dir=bld_dpath, appname=env['APPNAME'],
                          version=branch)
@@ -56,7 +56,7 @@ def _bld(appname, start_path, ico_fpath):
                       appname=appname, AppName=appname.capitalize(),
                       vendorsite='ya2.it')
     system(cmd)
-    copy_tree('../../build/manylinux1_x86_64', 'img/data')
+    copy_tree('../../build/manylinux2014_x86_64', 'img/data')
 
 
 def _bld_pckgs(appname):

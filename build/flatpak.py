@@ -20,7 +20,7 @@ def bld_flatpak(target, source, env):  # unused target, source
         __do_flatpak(env['FLATPAK_DST'], env['APPNAME'])
     # rmtree(bld_dpath + 'linux')
     rmtree('build/__whl_cache__')
-    rmtree('build/manylinux1_x86_64')
+    rmtree('build/manylinux2014_x86_64')
     rmtree('built/linux')
 
 

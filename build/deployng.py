@@ -8,7 +8,7 @@ from yyagl.build.build import InsideDir
 prereq = '''psutil
 bson'''
 requirements = '''
-panda3d==1.10.7'''
+panda3d==1.10.14'''
 excl_patterns = ['build/*', 'built/*', 'setup.py', 'requirements.txt', '*.swp',
                  'SConstruct', 'venv/*', '.git*', '*.pyc', 'options.json',
                  '__pycache__']
@@ -38,7 +38,7 @@ def bld_ng(appname, win=False, osx=False, linux=False):
                                  for concl in no_conv)
                 if is_track and is_bam and not is_no_conv:
                     remove(fname)
-        tgts = ['win_amd64', 'macosx_10_6_x86_64', 'manylinux1_x86_64']
+        tgts = ['win_amd64', 'macosx_10_6_x86_64', 'manylinux2014_x86_64']
         dtgt = [win, osx, linux]
         deploy_platforms = [
             pl_str for (pl_str, is_pl) in zip(tgts, dtgt) if is_pl]
@@ -72,7 +72,7 @@ def bld_ng(appname, win=False, osx=False, linux=False):
                 'include_modules': {'*': ['encodings.hex_codec']}},
             'bdist_apps': {
                 'installers': {
-                    'manylinux1_x86_64': ['xztar'],
+                    'manylinux2014_x86_64': ['xztar'],
                     'win_amd64': ['xztar', 'nsis'],
                     'macosx_10_6_x86_64': ['xztar']}}}
         with open('bsetup.py', 'w') as f_setup:
